@@ -1,0 +1,185 @@
+* {
+  /*reset do CSS, isso serve para tirar os elementos do navegador e agora sim você tem total liberdade para posicionar os seus elemntos conforme você quiser */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white; /*esta definindo que em todo conteudo da pagina que usar essa variavel vai usar branco no lugar*/
+  --bg-url: url(./assets/bg-dark.jpg); /*segue o mesmo principio do --text-color*/
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /*esse é em relação ao social-links*/
+  --switch-bg-url: url(./assets/moon-starts.svg);
+}
+
+/*esse light é a class que declaramos la emcima no HTML na parte do <html lang ="pt-br" class="light"> */
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(
+    0,
+    0,
+    0,
+    0.05
+  ); /*esta deixando o fundo desfocado porem em preto */
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center; para a imagem ficar centralizada no eixo "x" e no eixo "y"
+  background-size: cover;
+  O que estamos fazendo é para deixar todos os comandos relativos ao background em uma única linha, o famoso short hand ou atalho
+  */
+
+  /* background: color image repeat position/size*/
+
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  /* O * é algo universal que todas as fontes da pagina no caso use essa formatação */
+  font-family: "Inter", sans-serif;
+  color: var(
+    --text-color
+  ); /*essa é a definição para o :root que declaramos la emcima como --text-color: white; sendo que é o var é a função que declara ele*/
+}
+
+#container {
+  width: 360px;
+  /*
+  margin-top: 56px;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  Bem parecido com o background, só que top right bottom left sendo se eu declarar três coisas como aqui o margin right e left será o mesmo mas se for apenas duas coisas ai apenas eu dos elementos tera uma margem especifica enquando os outros terá a mesma*/
+  margin: 56px auto 0px;
+  padding: 0 24px; /*o 0 é o espaçamento em cima e o 24 é o espaçamento dos lados*/
+}
+
+/*profile*/
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  margin: auto;
+}
+
+#profile p {
+  font-weight: 500;
+  /*font-size: 16px; já é o padrão dos navegadores então não precisa */
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*switch*/
+#switch{
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  /*color imagem repeat position*/
+  background: white var(--switch-bg-url) no-repeat;
+  border: 0; /*não tem borda*/
+  border-radius: 50%; /*circulo perfeito*/
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1; /*para subir camadas*/
+  transform: translateY(-50%);
+}
+
+.light #switch button{
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* Links */
+ul {
+  list-style: none; /*serve para tirar os pontos da lista*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  background: var(--surface-color);
+  backdrop-filter: blur(4px); /* serve como blur, deixar embassado*/
+  -webkit-backdrop-filter: blur(
+    4px
+  ); /*usa o webkit para que alguns browers consigam idetificar*/
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center; /*centraliza o texto em relação ao eixo x*/
+  justify-content: center; /*centraliza o texto em relação ao eixo y*/
+  padding: 16px 24px;
+  text-decoration: none; /*serve para tirar o underline do texto*/
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+/*pseudo-seletor*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/*Social Links*/
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0; /*o padding de 24px é para cima e baixo já o 0 é para as laterais*/
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
