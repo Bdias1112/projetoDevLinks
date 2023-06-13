@@ -44,4 +44,4 @@ Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com ❤ by Rocketseat :wave: [Participe da nossa comunidade!](https://discord.gg/rocketseat)
+Feito com ❤ by Bruno Dias :wave: [Acesse meu LinkedIn!](https://www.linkedin.com/in/bruno-dias-custodio-50461b259/)
